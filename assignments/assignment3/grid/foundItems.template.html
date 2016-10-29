@@ -1,6 +1,10 @@
-<div  ng-repeat="item in list.items" class>
-  <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-default btn-sm" ng-click="list.onRemove({index : $index});">
-    <span class="glyphicon glyphicon-remove"></span>
+<div  ng-repeat="item in list.items">
+  <button type="button" data-
+    toggle="tooltip"
+    title="Remove"
+    class="btn btn-default btn-sm"
+    ng-click="list.onRemove({index : $index});">
       {{item.name}}
+      <span class="glyphicon glyphicon-remove"></span>
   </button>
 </div>
