@@ -32,21 +32,14 @@ function FoundItemsDirectiveController(){
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
   var ctrl = this;
-  var previousSearchItem;;
   ctrl.foundItems = [];
   ctrl.searchTerm="";
   ctrl.showLoader = false;
   ctrl.hasError=false;
 
   ctrl.onSearch = function(){
-    // Initialise variables to avoid searching if the search string hasn't changed
-    if(previousSearchItem !== undefined && previousSearchItem.localeCompare(ctrl.searchTerm)==0)
-      return;
-
     // Initialise loader and error parameters
-    ctrl.foundItems = [];
     ctrl.hasError=false;
-    previousSearchItem=ctrl.searchTerm;
     ctrl.showLoader = true;
 
     // Calling the service
