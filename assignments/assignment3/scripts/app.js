@@ -13,6 +13,7 @@ function FoundItemsDirective() {
     templateUrl: 'grid/foundItems.template.html',
     scope: {
       items: '<',
+      showLoader: '<',
       onRemove: '&onRemove'
     },
     controller: FoundItemsDirectiveController,
@@ -31,24 +32,40 @@ function FoundItemsDirectiveController(){
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
   var ctrl = this;
+  var previousSearchItem;;
   ctrl.foundItems = [];
-  ctrl.searchTerm;
+  ctrl.searchTerm="";
+  ctrl.showLoader = false;
+  ctrl.hasError=false;
 
   ctrl.onSearch = function(){
-    var promise =  MenuSearchService.getMatchedMenuItems(ctrl.searchTerm);
+    // Initialise variables to avoid searching if the search string hasn't changed
+    if(previousSearchItem !== undefined && previousSearchItem.localeCompare(ctrl.searchTerm)==0)
+      return;
+
+    // Initialise loader and error parameters
+    ctrl.foundItems = [];
+    ctrl.hasError=false;
+    previousSearchItem=ctrl.searchTerm;
+    ctrl.showLoader = true;
+
+    // Calling the service
+    var promise =  MenuSearchService.getMatchedMenuItems(ctrl.searchTerm,ctrl.onError);
     promise.then(function (data) {
     ctrl.foundItems = data;
     })
     .catch(function (error) {
+      ctrl.hasError=true;
       console.log(error);
+    })
+    .finally(function(){
+      ctrl.showLoader = false;
     })
   };
 
   ctrl.onRemove = function(index){
     ctrl.foundItems.splice(index,1);
   };
-
-
 }
 
 MenuSearchService.$inject = ['$http', 'ApiBasePath']
