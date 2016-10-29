@@ -10,7 +10,7 @@ angular.module('NarrowItDownApp', [])
 
 function FoundItemsDirective() {
   var ddo = {
-    templateUrl: '../grid/foundItems.template.html',
+    templateUrl: '/grid/foundItems.template.html',
     scope: {
       items: '<',
       onRemove: '&onRemove'
