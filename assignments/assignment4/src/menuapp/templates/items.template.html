@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Menu items in this category</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in menuitems.items">
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.price_large}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
