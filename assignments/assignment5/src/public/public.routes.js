@@ -57,7 +57,8 @@ function routeConfig ($stateProvider) {
           return MenuService.getUser();
         }],
         menuitem: ['MenuService', function(MenuService){
-          return MenuService.getMenuItem();
+          //return MenuService.getMenuItem();
+          return null;
         }]
       }
     });
