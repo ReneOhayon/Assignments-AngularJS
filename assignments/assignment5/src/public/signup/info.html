@@ -1,0 +1,6 @@
+<div ng-if="info.user===undefined">
+  <a ui-sref="public.signup">
+    Not Signed Up Yet. Sign up Now!
+  </a>
+</div>
+<signup-info user="info.user" is-input="false" ng-if="info.user"/>
