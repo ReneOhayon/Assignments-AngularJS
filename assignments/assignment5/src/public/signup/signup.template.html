@@ -63,12 +63,9 @@
 
   <button class="btn btn-default" ng-if="$ctrl.isInput"
     ng-disabled="regForm.$invalid"
-    ng-click="$ctrl.submit()">Submit</button>
-
+    ng-click="$ctrl.submit()">Submit
+  </button>
 </form>
-</fieldset>
-<br>
 <div class="alert alert-success fade in" ng-if="$ctrl.saved && $ctrl.isInput">
-<strong>Your information has been saved!</strong>
-</div>
+  <strong>Your information has been saved!</strong>
 </div>

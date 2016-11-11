@@ -6,7 +6,8 @@ angular.module('public')
   templateUrl: 'src/public/signup/signup.template.html',
   bindings: {
     isInput: '<',
-    user: '<'
+    user: '<',
+    menuItem: '<'
   },
   controller: 'SignUpController'
 });
