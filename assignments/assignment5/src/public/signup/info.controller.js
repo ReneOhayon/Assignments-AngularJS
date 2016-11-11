@@ -10,6 +10,5 @@
     var info = this;
     info.user=user;
     info.menuitem=menuitem;
-    console.log(info.user);
   }
 })();

@@ -57,10 +57,10 @@ function routeConfig ($stateProvider) {
           return MenuService.getUser();
         }],
         menuitem: [function(){return null;}]
-        // ,
-        // menuitem: ['MenuService', function(MenuService){
-        //   return MenuService.getMenuItem();
-        // }]
+        ,
+        menuitem: ['MenuService', function(MenuService){
+          return MenuService.getMenuItem();
+        }]
       }
     });
 }

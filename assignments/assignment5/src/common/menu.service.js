@@ -39,7 +39,7 @@ function MenuService($http, ApiPath) {
   service.getMenuItem = function(){
     if (service.currentUser!==undefined || service.currentUser.favorite===undefined)
       return null;
-    return $http.get(ApiPath + '/' + service.currentUser.favorite + '.json').then(function (response) {
+    return $http.get(ApiPath + '/menu_items/' + service.currentUser.favorite + '.json').then(function (response) {
       return response.data;
     });
   };
